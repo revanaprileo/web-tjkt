@@ -270,7 +270,9 @@
             }
 
             .guru-title-modern {
-                font-size: 0.8rem;
+                font-size: 0.6rem;
+                padding: 0.4rem 0.7rem;
+                letter-spacing: 0.06em;
             }
 
             .guru-tag {
@@ -4124,8 +4126,9 @@
             font-size: 1.25rem;
             font-weight: 700;
             color: #111827;
-            margin-bottom: 4px;
+            margin-bottom: 0.65rem;
             letter-spacing: -0.01em;
+            line-height: 1.3;
         }
 
         .dark .guru-name-modern {
@@ -4133,14 +4136,97 @@
         }
 
         .guru-title-modern {
-            font-size: 0.9rem;
-            color: #6b7280;
-            font-weight: 500;
-            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            max-width: 100%;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #1e40af;
+            margin: 0 0 0.25rem;
+            padding: 0.5rem 0.95rem;
+            border-radius: 9999px;
+            background: linear-gradient(145deg, rgba(239, 246, 255, 0.95) 0%, rgba(224, 231, 255, 0.85) 50%, rgba(238, 242, 255, 0.9) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.28);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 2px 8px rgba(37, 99, 235, 0.08);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
         }
 
         .dark .guru-title-modern {
-            color: #9ca3af;
+            color: #bfdbfe;
+            background: linear-gradient(145deg, rgba(30, 58, 138, 0.45) 0%, rgba(49, 46, 129, 0.35) 100%);
+            border-color: rgba(96, 165, 250, 0.35);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .guru-card-modern:hover .guru-title-modern {
+            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(37, 99, 235, 0.14);
+        }
+
+        .dark .guru-card-modern:hover .guru-title-modern {
+            border-color: rgba(147, 197, 253, 0.45);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Variasi jabatan struktural (selain Pengajar TJKT) */
+        .guru-title-modern.guru-title--lead {
+            color: #92400e;
+            background: linear-gradient(145deg, rgba(255, 251, 235, 0.98) 0%, rgba(254, 243, 199, 0.9) 100%);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 2px 8px rgba(245, 158, 11, 0.12);
+        }
+
+        .dark .guru-title-modern.guru-title--lead {
+            color: #fcd34d;
+            background: linear-gradient(145deg, rgba(120, 53, 15, 0.5) 0%, rgba(146, 64, 14, 0.35) 100%);
+            border-color: rgba(251, 191, 36, 0.35);
+        }
+
+        .guru-card-modern:hover .guru-title-modern.guru-title--lead {
+            border-color: rgba(245, 158, 11, 0.55);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 6px 16px rgba(245, 158, 11, 0.18);
+        }
+
+        .guru-title-modern.guru-title--ops {
+            color: #0f766e;
+            background: linear-gradient(145deg, rgba(240, 253, 250, 0.98) 0%, rgba(204, 251, 241, 0.85) 100%);
+            border-color: rgba(20, 184, 166, 0.35);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 2px 8px rgba(20, 184, 166, 0.1);
+        }
+
+        .dark .guru-title-modern.guru-title--ops {
+            color: #5eead4;
+            background: linear-gradient(145deg, rgba(17, 94, 89, 0.45) 0%, rgba(15, 118, 110, 0.3) 100%);
+            border-color: rgba(45, 212, 191, 0.35);
+        }
+
+        .guru-card-modern:hover .guru-title-modern.guru-title--ops {
+            border-color: rgba(20, 184, 166, 0.5);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 6px 16px rgba(20, 184, 166, 0.15);
+        }
+
+        .guru-title-modern.guru-title--lab {
+            color: #5b21b6;
+            background: linear-gradient(145deg, rgba(250, 245, 255, 0.98) 0%, rgba(237, 233, 254, 0.9) 100%);
+            border-color: rgba(139, 92, 246, 0.35);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 2px 8px rgba(124, 58, 237, 0.1);
+        }
+
+        .dark .guru-title-modern.guru-title--lab {
+            color: #c4b5fd;
+            background: linear-gradient(145deg, rgba(76, 29, 149, 0.45) 0%, rgba(91, 33, 182, 0.32) 100%);
+            border-color: rgba(167, 139, 250, 0.35);
+        }
+
+        .guru-card-modern:hover .guru-title-modern.guru-title--lab {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 6px 16px rgba(124, 58, 237, 0.16);
         }
 
         .guru-tags-modern {
@@ -6290,7 +6376,7 @@
                                 onerror="this.onerror=null;this.src='https://placehold.co/200x200/6366f1/ffffff?text=Risna';">
                         </div>
                         <h3 class="guru-name-modern"> Risnawati, S.Pd</h3>
-                        <p class="guru-title-modern">Pengajar TJKT</p>
+                        <p class="guru-title-modern guru-title--lead">Kepala Kejuruan</p>
                     </div>
 
                     <!-- Guru 6: (isi nanti) -->
@@ -6320,7 +6406,7 @@
                                 onerror="this.onerror=null;this.src='https://placehold.co/200x200/f97316/ffffff?text=Guru+8';">
                         </div>
                         <h3 class="guru-name-modern">M. Abdul Aziz</h3>
-                        <p class="guru-title-modern">Pengajar TJKT</p>
+                        <p class="guru-title-modern guru-title--ops">Toolmen</p>
                     </div>
 
                     <!-- Guru 9: (isi nanti) -->
@@ -6340,7 +6426,7 @@
                                 onerror="this.onerror=null;this.src='https://placehold.co/200x200/ef4444/ffffff?text=Guru+10';">
                         </div>
                         <h3 class="guru-name-modern">Fatkholil Darus Kurniawan,S.Kom</h3>
-                        <p class="guru-title-modern">Pengajar TJKT</p>
+                        <p class="guru-title-modern guru-title--lab">Kepala Bengkel</p>
                     </div>
                 </div>
             </div>
@@ -6723,6 +6809,36 @@
                                         <textarea id="komentar" name="message" rows="5" class="form-control"
                                             placeholder=" " required></textarea>
                                         <label for="komentar" class="form-label">Komentar Anda</label>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border border-blue-200 dark:border-blue-900/50 bg-blue-50/80 dark:bg-blue-950/30 p-4 sm:p-5 mb-4">
+                                        <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-1">Verifikasi
+                                            singkat</p>
+                                        <p class="text-xs text-gray-600 dark:text-gray-400 mb-4">Isi nama yang benar
+                                            sesuai struktur TJKT (lihat bagian <a href="#guru"
+                                                class="text-blue-600 dark:text-blue-400 underline">Guru</a> bila perlu).
+                                        </p>
+                                        <div class="form-group">
+                                            <input type="text" id="verify-kepala-kejuruan"
+                                                name="verifikasi_kepala_kejuruan" class="form-control" placeholder=" "
+                                                required autocomplete="off">
+                                            <label for="verify-kepala-kejuruan" class="form-label">Nama Kepala
+                                                Kejuruan</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="verify-toolmen" name="verifikasi_toolmen"
+                                                class="form-control" placeholder=" " required autocomplete="off">
+                                            <label for="verify-toolmen" class="form-label">Nama Toolmen</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="verify-kepala-bengkel"
+                                                name="verifikasi_kepala_bengkel" class="form-control" placeholder=" "
+                                                required autocomplete="off">
+                                            <label for="verify-kepala-bengkel" class="form-label">Nama Kepala
+                                                Bengkel</label>
+                                        </div>
+                                        <p id="verify-form-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-2"
+                                            role="alert"></p>
                                     </div>
                                     <button type="submit" class="btn-submit w-full" id="submit-btn">
                                         <span id="submit-text">Kirim Komentar</span>
@@ -7432,12 +7548,55 @@
             // Form submission handler for Web3Forms
             const contactForm = document.querySelector('form[action*="web3forms"]');
             if (contactForm) {
+                function normalizeVerifyName(s) {
+                    return String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+                }
+
+                function validateStaffVerification() {
+                    var errEl = document.getElementById('verify-form-error');
+                    if (errEl) {
+                        errEl.classList.add('hidden');
+                        errEl.textContent = '';
+                    }
+                    var k = normalizeVerifyName(document.getElementById('verify-kepala-kejuruan') && document.getElementById('verify-kepala-kejuruan').value);
+                    var t = normalizeVerifyName(document.getElementById('verify-toolmen') && document.getElementById('verify-toolmen').value);
+                    var b = normalizeVerifyName(document.getElementById('verify-kepala-bengkel') && document.getElementById('verify-kepala-bengkel').value);
+                    if (!k.includes('risnawati')) {
+                        if (errEl) {
+                            errEl.textContent = 'Nama Kepala Kejuruan belum benar. Yang benar: Risnawati (boleh lengkap dengan gelar).';
+                            errEl.classList.remove('hidden');
+                        }
+                        return false;
+                    }
+                    if (!t.includes('aziz')) {
+                        if (errEl) {
+                            errEl.textContent = 'Nama Toolmen belum benar. Yang benar: M. Abdul Aziz (cukup mengandung "Aziz").';
+                            errEl.classList.remove('hidden');
+                        }
+                        return false;
+                    }
+                    if (!b.includes('kholil')) {
+                        if (errEl) {
+                            errEl.textContent = 'Nama Kepala Bengkel belum benar. Yang benar: Fatkholil Darus Kurniawan (cukup mengandung "Kholil").';
+                            errEl.classList.remove('hidden');
+                        }
+                        return false;
+                    }
+                    return true;
+                }
+
                 contactForm.addEventListener('submit', function (e) {
                     e.preventDefault();
 
                     const submitBtn = document.getElementById('submit-btn');
                     const submitText = document.getElementById('submit-text');
                     const submitLoading = document.getElementById('submit-loading');
+
+                    if (!validateStaffVerification()) {
+                        var box = document.querySelector('#verify-form-error');
+                        if (box && box.parentElement) box.parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        return;
+                    }
 
                     // Show loading state
                     submitBtn.disabled = true;
@@ -7493,6 +7652,16 @@
                                 submitBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
                             }, 3000);
                         });
+                });
+                ['verify-kepala-kejuruan', 'verify-toolmen', 'verify-kepala-bengkel'].forEach(function (vid) {
+                    var vel = document.getElementById(vid);
+                    if (vel) vel.addEventListener('input', function () {
+                        var errEl = document.getElementById('verify-form-error');
+                        if (errEl) {
+                            errEl.classList.add('hidden');
+                            errEl.textContent = '';
+                        }
+                    });
                 });
             }
 
