@@ -6799,8 +6799,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <form action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
+                                <form id="komentar-form" action="https://api.web3forms.com/submit" method="POST" accept-charset="UTF-8">
                                     <input type="hidden" name="access_key" value="5cc80d54-b75d-4dcb-a2a9-0ecd00409345">
+                                    <input type="hidden" name="subject" value="Komentar Baru dari Website TJKT">
+                                    <input type="hidden" name="from_name" value="Website TJKT">
+                                    <input type="hidden" name="replyto" id="replyto-field" value="">
                                     <div class="form-group">
                                         <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-control"
                                             placeholder=" " required>
@@ -7539,9 +7542,18 @@
                         errEl.classList.add('hidden');
                         errEl.textContent = '';
                     }
-                    var k = normalizeVerifyName(document.getElementById('verify-kepala-kejuruan') && document.getElementById('verify-kepala-kejuruan').value);
-                    var t = normalizeVerifyName(document.getElementById('verify-toolmen') && document.getElementById('verify-toolmen').value);
-                    var b = normalizeVerifyName(document.getElementById('verify-kepala-bengkel') && document.getElementById('verify-kepala-bengkel').value);
+                    var verifyKEl = document.getElementById('verify-kepala-kejuruan');
+                    var verifyTEl = document.getElementById('verify-toolmen');
+                    var verifyBEl = document.getElementById('verify-kepala-bengkel');
+
+                    // Jika kolom verifikasi tidak ada di form, jangan blokir pengiriman komentar.
+                    if (!verifyKEl && !verifyTEl && !verifyBEl) {
+                        return true;
+                    }
+
+                    var k = normalizeVerifyName(verifyKEl && verifyKEl.value);
+                    var t = normalizeVerifyName(verifyTEl && verifyTEl.value);
+                    var b = normalizeVerifyName(verifyBEl && verifyBEl.value);
                     if (!k.includes('risnawati')) {
                         if (errEl) {
                             errEl.textContent = 'Nama Kepala Kejuruan belum benar. Yang benar: Risnawati (boleh lengkap dengan gelar).';
@@ -7577,6 +7589,12 @@
                         var box = document.querySelector('#verify-form-error');
                         if (box && box.parentElement) box.parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                         return;
+                    }
+
+                    var emailField = document.getElementById('email');
+                    var replyToField = document.getElementById('replyto-field');
+                    if (emailField && replyToField) {
+                        replyToField.value = emailField.value.trim();
                     }
 
                     // Show loading state
