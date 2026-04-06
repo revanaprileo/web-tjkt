@@ -6819,11 +6819,9 @@
                                             placeholder=" " required></textarea>
                                         <label for="komentar" class="form-label">Komentar Anda</label>
                                     </div>
-           
-                                     
-                                        <p id="verify-form-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-2"
-                                            role="alert"></p>
-                                    </div>
+                                    <p id="verify-form-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-2"
+                                        role="alert"></p>
+                                    <p id="form-status" class="hidden text-sm mt-2" role="status" aria-live="polite"></p>
                                     <button type="submit" class="btn-submit w-full" id="submit-btn">
                                         <span id="submit-text">Kirim Komentar</span>
                                         <span id="submit-loading" class="hidden">
@@ -7584,6 +7582,13 @@
                     const submitBtn = document.getElementById('submit-btn');
                     const submitText = document.getElementById('submit-text');
                     const submitLoading = document.getElementById('submit-loading');
+                    const formStatus = document.getElementById('form-status');
+
+                    if (formStatus) {
+                        formStatus.classList.add('hidden');
+                        formStatus.classList.remove('text-red-600', 'dark:text-red-400', 'text-green-600', 'dark:text-green-400');
+                        formStatus.textContent = '';
+                    }
 
                     if (!validateStaffVerification()) {
                         var box = document.querySelector('#verify-form-error');
@@ -7619,6 +7624,11 @@
                                 // Success
                                 submitLoading.innerHTML = '<i class="fas fa-check mr-2"></i>Terima Kasih!';
                                 submitBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                                if (formStatus) {
+                                    formStatus.textContent = 'Komentar berhasil dikirim ke email admin.';
+                                    formStatus.classList.remove('hidden');
+                                    formStatus.classList.add('text-green-600', 'dark:text-green-400');
+                                }
 
                                 // Trigger confetti
                                 createConfetti();
@@ -7643,6 +7653,11 @@
                             console.error('Error:', error);
                             submitLoading.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>' + (error.message || 'Error! Coba lagi');
                             submitBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+                            if (formStatus) {
+                                formStatus.textContent = 'Komentar gagal dikirim. Coba lagi sebentar.';
+                                formStatus.classList.remove('hidden');
+                                formStatus.classList.add('text-red-600', 'dark:text-red-400');
+                            }
 
                             setTimeout(() => {
                                 submitBtn.disabled = false;
